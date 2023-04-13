@@ -1,7 +1,16 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   
   def show
     @user = current_user
+    @book = Book.new
+    @books = Book.all
+  end
+  
+  def create
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    @book.save
+    redirect_to book_path(@book)
   end
 
   def edit
@@ -21,7 +30,13 @@ class UserController < ApplicationController
   def is_matching_login_user
     user = current_user
     unless user.id == current_user.id
-      redirect_to post_images_path
+      redirect_to root_path
     end
+  end
+  
+     private
+
+  def book_params
+    params.require(:book).permit(:title, :body)
   end
 end
