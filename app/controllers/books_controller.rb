@@ -19,7 +19,11 @@ class BooksController < ApplicationController
     @book.save
     redirect_to book_path(@book)
   end
-
+  
+  def edit
+    @book = Book.find(params[:id])
+  end
+  
    private
 
   def book_params

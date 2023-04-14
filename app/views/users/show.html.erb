@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-3">
         <h2>User info</h2>
-          <% if @user.profile_image.attached? %>
+          <% if @userid.profile_image.attached? %>
             <%= image_tag profile_image, size: "100x100" %>
           <% else %>
             <%= image_tag 'default-image', size: "100x100" %>
@@ -12,11 +12,11 @@
           <tbody>
             <tr>
               <th>name</th>
-              <th><%= @user.name %></th>
+              <th><%= @userid.name %></th>
             </tr>
             <tr>
               <th>introduction</th>
-              <th><%= @user.introduction %></th>
+              <th><%= @userid.introduction %></th>
             </tr>
           </tbody>
         </table>

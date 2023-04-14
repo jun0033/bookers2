@@ -55,9 +55,11 @@
                  <% else %>
                  <%= image_tag 'default-image', size: "80x80" %>
                  <% end %>
+                </div>
                 <div>
-                <div>
+                  <a link_to user_path>
                  <%= @user.name %>
+                  </a>
                 </div>
               </td>
               <td>

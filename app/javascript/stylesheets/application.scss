@@ -48,6 +48,10 @@ a {
     padding-left: 0;
 }
 
+.navbar-dark .navbar-brand, .navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover {
+    color: #fff;
+}
+
 .navbar-dark .navbar-nav .nav-link {
     color: hsla(0,0%,100%,.5);
 }
@@ -73,4 +77,22 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+}
+
+img, svg {
+    vertical-align: middle;
+}
+
+svg {
+    overflow: hidden;
+}
+
+.svg-inline--fa {
+    display: inline-block;
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em
+em
+;
 }
