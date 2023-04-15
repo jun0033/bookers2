@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @user = current_user
     @userid = User.find(params[:id])
     @book = Book.new
-    @books = Book.all
+    @mybooks = Book.where(params[:user_id])
   end
   
   def create

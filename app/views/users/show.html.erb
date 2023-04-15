@@ -53,7 +53,7 @@
           </thead>
           <tbody>
             <tr>
-              <% @books.each do |mybooks| %>
+              <% @mybooks.each do |mybooks| %>
               <td>
                  <% if @user.profile_image.attached? %>
                  <%= image_tag profile_image, size: "80x80" %>
@@ -62,7 +62,7 @@
                  <% end %>
               </td>
               <td>
-                <%= mybooks.title %>
+                <%= link_to "#{mybooks.title}", book_path %>
               </td>
               <td>
                 <%= mybooks.body %>

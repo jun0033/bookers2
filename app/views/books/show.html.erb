@@ -57,16 +57,20 @@
                  <% end %>
                 </div>
                 <div>
-                  <a link_to user_path>
-                 <%= @user.name %>
-                  </a>
+                 <%= link_to "#{@user.name}", user_path %>
                 </div>
               </td>
               <td>
-                <%= @book.title %>
+                <%= link_to "#{@bookid.title}", book_path %>
               </td>
               <td>
-                <%= @book.body %>
+                <%= @bookid.body %>
+              </td>
+              <td>
+                <%= link_to "Edit", edit_book_path %>
+              </td>
+              <td>
+                <%= link_to "Destroy", book_path(@bookid), method: :delete %>
               </td>
             </tr>
           </tbody>
