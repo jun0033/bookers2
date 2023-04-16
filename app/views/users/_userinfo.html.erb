@@ -1,20 +1,39 @@
 <h2>User info</h2>
-          <% if userid.profile_image.attached? %>
-          <!-- @userid → userid -->
-            <%= image_tag profile_image, size: "100x100" %>
-          <% else %>
-            <%= image_tag 'default-image', size: "100x100" %>
-          <% end %>
-        <table clas="table">
-          <tbody>
-            <tr></tr>
-            <tr>
-              <th>name</th>
-              <th><%= userid.name %></th>
-            </tr>
-            <tr>
-              <th>introduction</th>
-              <th><%= userid.introduction %></th>
-            </tr>
-          </tbody>
-        </table>
+<!-- @userid → userid, @user → user, @book → book -->
+<%= image_tag userid.get_profile_image(100,100) %>
+<table clas="table">
+  <tbody>
+    <tr></tr>
+    <tr>
+      <th>name</th>
+      <th><%= userid.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= userid.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+<% if user == current_user %>
+  <%= link_to edit_user_path(userid.id), class:"btn btn-outline-secondary btn-block" do %>
+  <i class="fas fa-user-cog"></i>
+  <% end %>
+<% else %>
+  <%= link_to user_path(userid.id), class:"btn btn-outline-secondary btn-block" do %>
+  <i class="fas fa-user-cog"></i>
+  <% end %>
+<% end %>
+<h2 class="mt-3>">New book</h2>
+<%= form_with model: book do |f| %>
+  <div class="form-group">
+    <h4>Title</h4>
+    <%= f.text_field :title, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <h4>Opinion</h4>
+    <%= f.text_area :body, class:"form-control", rows:"3" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'Create Book', class:"btn btn-sm btn-success" %>
+  </div>
+<% end %>

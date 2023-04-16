@@ -1,44 +1,8 @@
-<p id="notice"></p>
+<p id="notice"><%= flash[:notice] %></p>
   <div class="conteiner px-5 px-sm-0">
     <div class="row">
       <div class="col-md-3">
-        <h2>User info</h2>
-          <% if @user.profile_image.attached? %>
-            <%= image_tag profile_image, size: "100x100" %>
-          <% else %>
-            <%= image_tag 'default-image', size: "100x100" %>
-          <% end %>
-        <table clas="table">
-          <tbody>
-            <tr>
-              <th>name</th>
-              <th><%= @user.name %></th>
-            </tr>
-            <tr>
-              <th>introduction</th>
-              <th><%= @user.introduction %></th>
-            </tr>
-          </tbody>
-        </table>
-        <% if @user == current_user %>
-          <div class="row">
-            <%= link_to "編集", edit_user_path(@user.id) %>
-          </div>
-        <% end %>
-        <h2 class="mt-3>">New book</h2>
-        <%= form_with model: @book do |f| %>
-        <div class="form-group">
-          <h4>Title</h4>
-          <%= f.text_field :title, class:"form-control" %>
-        </div>
-        <div class="form-group">
-          <h4>Opinion</h4>
-          <%= f.text_area :body, class:"form-control", rows:"3" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit 'Create Book', class:"btn btn-sm btn-success" %>
-        </div>
-        <% end %>
+        <%= render 'users/userinfo', userid: @user, user: @userid, book: @book %>
       </div>
       <div class="col-md-8 offset-md-1">
         <table class="table table-hover table-inverse">
@@ -51,14 +15,10 @@
             <tr>
               <td>
                 <div>
-                 <% if @user.profile_image.attached? %>
-                 <%= image_tag profile_image, size: "80x80" %>
-                 <% else %>
-                 <%= image_tag 'default-image', size: "80x80" %>
-                 <% end %>
+                 <%= image_tag @bookid.user.get_profile_image(80,80)%>
                 </div>
                 <div>
-                 <%= link_to "#{@user.name}", user_path %>
+                 <%= link_to "#{@bookid.user.name}", user_path(@bookid.user_id) %>
                 </div>
               </td>
               <td>
