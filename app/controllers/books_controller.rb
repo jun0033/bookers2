@@ -13,16 +13,32 @@ class BooksController < ApplicationController
     @books = Book.all
     @bookid = Book.find(params[:id])
   end
-  
+
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.save
     redirect_to book_path(@book)
   end
-  
+
   def edit
     @bookid = Book.find(params[:id])
+  end
+
+  def destroy
+    @bookid = Book.find(params[:id])
+    @bookid.delete
+    redirect_to books_path
+  end
+
+  def update
+    @bookid = Book.find(params[:id])
+    if @bookid.update(book_params)
+    flash[:notice] = "You have updated book successfully."
+    redirect_to book_path(@bookid)
+    else
+    render :edit
+    end
   end
   
    private

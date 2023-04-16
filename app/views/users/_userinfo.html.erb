@@ -1,0 +1,20 @@
+<h2>User info</h2>
+          <% if userid.profile_image.attached? %>
+          <!-- @userid → userid -->
+            <%= image_tag profile_image, size: "100x100" %>
+          <% else %>
+            <%= image_tag 'default-image', size: "100x100" %>
+          <% end %>
+        <table clas="table">
+          <tbody>
+            <tr></tr>
+            <tr>
+              <th>name</th>
+              <th><%= userid.name %></th>
+            </tr>
+            <tr>
+              <th>introduction</th>
+              <th><%= userid.introduction %></th>
+            </tr>
+          </tbody>
+        </table>
