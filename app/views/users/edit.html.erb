@@ -3,17 +3,8 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
           <h2>User info</h2>
-          <div id="error_explanation">
-            <% if @userid.errors.any? %>
-            <h3><%= @userid.errors.count %> error prohibited this obj from being saved:</h3>
-            <ul>
-              <% @userid.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-              <% end %>
-            </ul>
-            <% end %>
-          </div>
-          <%= form_with model: @userid do |f| %>
+          <%= render 'errorexplanation', book: @user %>
+          <%= form_with model: @user do |f| %>
           <div class="form-group">
           <%= f.label :Name %>
           <%= f.text_field :name, class:"form-control" %>
