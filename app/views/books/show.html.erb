@@ -1,8 +1,8 @@
 <p id="notice"><%= flash[:notice] %></p>
-  <div class="conteiner px-5 px-sm-0">
+  <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <%= render 'users/userinfo', userid: @user, user: @userid, book: @book %>
+        <%= render 'users/userinfo', userid: @user, book: @book %>
       </div>
       <div class="col-md-8 offset-md-1">
         <table class="table table-hover table-inverse">
@@ -32,7 +32,7 @@
                 <%= link_to "Edit", edit_book_path, class:"btn btn-sm btn-success" %>
               </td>
               <td>
-                <%= link_to "Destroy", book_path(@bookid), method: :delete, class:"btn btn-sm btn-danger" %>
+                <%= link_to "Destroy", book_path(@bookid), method: :delete, class:"btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
               </td>
               <% end %>
             </tr>

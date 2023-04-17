@@ -1,5 +1,5 @@
 <p id="notice"></p>
-<div class="conteiner px-5 px-sm-0">
+<div class="container px-5 px-sm-0">
   <div id="error_explanation">
     <% if @book.errors.any? %>
         <h3><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
@@ -12,7 +12,7 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-      <%= render 'users/userinfo', userid: @user, user: @userid, book: @book %>
+      <%= render 'users/userinfo', userid: @user, book: @book %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
@@ -29,7 +29,9 @@
           <tr>
             <% @books.each do |book| %>
             <td>
+              <%= link_to book_path(book.id) do %>
               <%= image_tag book.user.get_profile_image(80,80)%>
+              <% end %>
             </td>
             <td>
               <%= link_to "#{book.title}", book_path(book.id) %>
