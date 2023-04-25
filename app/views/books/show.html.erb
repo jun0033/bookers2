@@ -40,7 +40,6 @@
               </td>
               <% end %>
             </tr>
-              <div id="comment_buttons_<%= @bookid.id %>">
                 <table>
                   <% @bookid.book_comments.each do |book_comment| %>
                   <tr>
@@ -65,7 +64,6 @@
                       <%= f.submit "Submit", class:"btn btn-sm btn-success" %>
                     <% end %>
                 </table>
-              </div>
               </td>
           </tbody>
         </table>
