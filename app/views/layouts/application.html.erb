@@ -80,6 +80,11 @@
       </nav>
     </header>
     <main>
+      <div class="container px-5 px-sm-0">
+      <% if user_signed_in? %>
+       <%= render 'searches/search' %>
+      <% end %>
+      </div>
     <%= flash[:notice] %>
     <%= yield %>
     </main>
