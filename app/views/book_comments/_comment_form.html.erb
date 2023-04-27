@@ -1,7 +1,7 @@
 <div>
   <br>
-    <%= form_with model: [bookid, comment], local: false do |f| %>
-      <%= f.text_area :comment, rows: '5', placeholder: "Comment" %>
+    <%= form_with(model: [bookid, comment], local: false) do |f| %>
+      <%= f.text_area :comment, rows: '5', placeholder: "Comment", class: "comment-textarea" %>
       <%= f.submit "Submit", class:"btn btn-sm btn-success" %>
     <% end %>
 </div>
