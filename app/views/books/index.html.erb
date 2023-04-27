@@ -1,4 +1,4 @@
-<p id="notice"></p>
+
 <div class="container px-5 px-sm-0">
   <%= render 'users/errorexplanation', book: @book %>
   <div class="row">
@@ -33,7 +33,7 @@
             <td id="favorite_buttons_<%= book.id %>">
              <%= render "favorites/favorite", book: book %>
             </td>
-            <td><%= link_to book_path(book.id) do%>
+            <td><%= link_to book_path(book.id) do %>
             <%= book.book_comments.count %> コメント
             <% end %></td>
           </tr>

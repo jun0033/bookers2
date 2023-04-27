@@ -1,4 +1,4 @@
-<p id="notice"><%= flash[:notice] %></p>
+
   <div class="container">
     <div class="row">
       <div class="col-md-3">
@@ -40,33 +40,12 @@
               </td>
               <% end %>
             </tr>
-                <table>
-                  <% @bookid.book_comments.each do |book_comment| %>
-                  <tr>
-                    <td><%= image_tag book_comment.user.get_profile_image(80,80) %></td>
-                    <td><%= book_comment.comment %></td>
-                  </tr>
-                </table>
-                <table>
-                  <td><%= book_comment.user.name %></td>
-                  <td><%= book_comment.created_at.strftime('%Y/%m/%d') %></td>
-                  <td>
-                    <% if book_comment.user == current_user %>
-                      <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete , class: "btn btn-sm btn-danger" %>
-                    <% end %>
-                  </td>
-                  <% end %>
-                </table>
-                <table>
-                  <br>
-                    <%= form_with model: [@bookid, @book_comment], class: 'js-form' do |f| %>
-                      <%= f.text_area :comment, rows: '5', placeholder: "Comment" %>
-                      <%= f.submit "Submit", class:"btn btn-sm btn-success" %>
-                    <% end %>
-                </table>
-              </td>
           </tbody>
         </table>
+        <%= render "book_comments/book_comment", bookid: @bookid %>
+        <td id="comment_buttons">
+        <%= render "book_comments/comment_form", bookid: @bookid, comment: @book_comment %>
+        </td>
       </div>
     </div>
   </div>
