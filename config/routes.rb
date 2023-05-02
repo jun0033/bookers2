@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get 'home/about' => 'home#about', as: 'about'
   get "search" => "searches#search"
   devise_for :users
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
   resources :books, only: [:new, :index, :show, :create, :destroy, :edit, :update] do
     resource :favorite, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
