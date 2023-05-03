@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'chats/show'
   root to: "home#top"
   get "home/about" => "home#about", as: "about"
   get "search" => "searches#search"
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
+  get 'chat/:id', to: 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 
   resources :books, only: [:new, :index, :show, :create, :destroy, :edit, :update] do
     resource :favorite, only: [:create, :destroy]
