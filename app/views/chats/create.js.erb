@@ -1,2 +1,2 @@
-$('.message').append("<div><%= @chat.message %></div>");
+$('#newchat').append('<div class="row shadow-lg p-3 mb-5 bg-light rounded" style="text-align: right;" ><%= @chat.message %></div>');
 $('input[type=text]').val("")
