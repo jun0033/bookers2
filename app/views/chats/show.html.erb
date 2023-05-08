@@ -1,12 +1,12 @@
 <div class="container message">
-    <h2>CHAT WITH <%= @user.name %></h2>
-      <div style="text-align: left; font-size: 20px;"><%= @user.name %></div>
-      <div style="text-align: right; font-size: 20px;"><%= current_user.name %></div>
+    <h2>CHAT WITH"<%= @user.name %>"</h2>
       <% @chats.each do |chat| %>
         <% if chat.user_id == current_user.id %>
-              <div style="text-align: right;" class= "row shadow-lg p-3 mb-5 bg-light rounded" ><%= chat.message %></div>
+          <div style="text-align: right; font-size: 20px;"><%= current_user.name %></div>
+          <div class= "row shadow-lg p-3 mb-5 bg-light rounded justify-content-end" ><%= chat.message %></div>
         <% else %>
-              <div style="text-align: left;" class= "row shadow-lg p-3 mb-5 bg-light rounded" ><%= chat.message %></div>
+          <div style="text-align: left; font-size: 20px;"><%= @user.name %></div>
+          <div class= "row shadow-lg p-3 mb-5 bg-light rounded " ><%= chat.message %></div>
         <% end %>
       <% end %>
       <div id="newchat"></div>
