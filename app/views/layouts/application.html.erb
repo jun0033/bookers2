@@ -8,6 +8,7 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "app"%>
   </head>
 
   <body>
@@ -80,22 +81,27 @@
       </nav>
     </header>
     <main>
+      <div style="background: radial-gradient(ellipse at top, #d8c4e9, transparent), radial-gradient(ellipse at bottom, #ab3939, transparent);">
       <div class="d-flex justify-content-center mb-2">
       <% if user_signed_in? %>
        <%= render 'searches/search' %>
       <% end %>
       </div>
     <%= flash[:notice] %>
+    <!--<div class="fadeIn" style="height: 100vmax">-->
     <%= yield %>
+    <!--</div>-->
+    </div>
     </main>
     <hooter>
-      <div class="container mt-5">
+      <div class="bg-dark">
         <div class="row">
           <div class="mx-auto">
-            <p>CopyRight Infratop.inc</p>
+            <p class="text-light">CopyRight Infratop.inc</p>
           </div>
         </div>
       </div>
     </hooter>
+  
   </body>
 </html>

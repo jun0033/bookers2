@@ -8,6 +8,7 @@
         <table class="table table-hover table-inverse">
           <thead>
             <tr>
+              <p class="view-count">👀数: <%= @bookid.view_counts.count %></p>
               <h2>Book detail</h2>
               <td id="favorite_buttons_<%= @bookid.id %>">
                <%= render "favorites/favorite", book: @bookid %>

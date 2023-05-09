@@ -36,6 +36,9 @@
             <td><%= link_to book_path(book.id) do %>
             <%= book.book_comments.count %> コメント
             <% end %></td>
+            <div class="box1">
+            <td class="view-count">👀数: <span class="count-up count-size"><%= book.view_counts.count %></span></td>
+            </div>
           </tr>
             <% end %>
         </tbody>
