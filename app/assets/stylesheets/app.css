@@ -18,11 +18,6 @@ animation-direction:normal;/*7で解説*/
   }
 }
 
-/*========= レイアウトのためのCSS ===============*/
-
-body{
-  background:#ccc;
-}
 
 /*========= 検索窓のためのCSS ===============*/
 
@@ -53,4 +48,122 @@ body{
   width: 250px;/*テキスト入力エリアが伸びる後の横幅*/
   padding: 20px 0 20px 60px;
   box-shadow: 0 2px rgba(6,0,1,.26);
+}
+
+
+.btnripple3{
+    /*波紋の基点とするためrelativeを指定*/
+  position: relative;
+    /*リンクの形状*/
+  display:inline-block;
+  margin:0 10px 20px 10px;
+    text-decoration: none;
+    color: #333;
+    outline: none;
+}
+
+/*波形の設定*/
+.btnripple3:hover::before {
+    content: '';
+    /*絶対配置で波形の位置を決める*/
+    position: absolute;
+    left:30%;
+    top:0;
+    /*波形の形状*/
+    border: 1px solid #333;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /*はじめは不透明*/
+  opacity:1;
+    /*アニメーションの設定*/
+    animation:1s circleanime2 forwards;
+}
+
+/*波形が広がるアニメーション*/
+@keyframes circleanime2{
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform:scale(2);
+    opacity: 0;
+  }
+}
+
+
+.gradient3 {
+    /*ボタンの形状*/
+    display: inline-block;
+    color: #fff;
+
+    padding: 10px 40px;
+    border-radius:30px;
+    text-decoration: none;
+    outline: none;
+    /*背景色*/
+    background: linear-gradient(to right, #44ea76 0%, #39fad7 80%, #39fad7 100%);
+    /*アニメーションの指定*/
+    transition: all 0.3s ease-out;
+}
+
+/*hoverした際のスケールで全体を拡大し影を付ける*/
+.gradient3:hover {
+    transform: scale(1.05);
+    /*ボックスの影*/
+    box-shadow: 0 15px 15px rgba(57,250,215,0.4);
+}
+
+
+.openbtn1{
+  position: relative;/*ボタン内側の基点となるためrelativeを指定*/
+  background:#57a2c7;
+  cursor: pointer;
+    width: 50px;
+    height:50px;
+  border-radius: 5px;
+}
+
+/*ボタン内側*/
+.openbtn1 span{
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+  background: #fff;
+    width: 45%;
+  }
+
+.openbtn1 span:nth-of-type(1) {
+  top:15px; 
+}
+
+.openbtn1 span:nth-of-type(2) {
+  top:23px;
+}
+
+.openbtn1 span:nth-of-type(3) {
+  top:31px;
+}
+
+/*activeクラスが付与されると線が回転して×に*/
+
+.openbtn1.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+  opacity: 0;/*真ん中の線は透過*/
+}
+
+.openbtn1.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
 }

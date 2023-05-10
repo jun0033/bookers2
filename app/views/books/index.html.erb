@@ -20,7 +20,7 @@
           <tr>
             <% @books.each do |book| %>
             <td>
-              <%= link_to user_path(book.user_id) do %>
+              <%= link_to user_path(book.user_id), class:"btnripple3" do %>
               <%= image_tag book.user.get_profile_image(80,80)%>
               <% end %>
             </td>
@@ -37,7 +37,7 @@
             <%= book.book_comments.count %> コメント
             <% end %></td>
             <div class="box1">
-            <td class="view-count">👀数: <span class="count-up count-size"><%= book.view_counts.count %></span></td>
+            <td class="view-count">👀数: <span class="count-up"><%= book.view_counts.count %></span></td>
             </div>
           </tr>
             <% end %>

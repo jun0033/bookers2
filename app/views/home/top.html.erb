@@ -1,7 +1,5 @@
 <div id="post_raty"></div>
   <div class="container">
-    <p>男性の学生数<br><span class="count-up">2540</span>人</p>
-    <p>女性の学生数<br><span class="count-up">2300</span>人</p>
     <div class="row" >
       <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
         <h1>welcome to
@@ -17,15 +15,16 @@
         </p>
         <p>you can share and exchange your opinions , inpressions , and emotions</p>
         <p> about various books!</p>
+        <p><span class="count-up">7824</span>人目の訪問者</p>
         <div class="btn-wrapper col-10 mx-auto">
           <div class="row">
-          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in btnripple3", method: :post %>
         </div>
           <div class="row">
-            <%= link_to "Log in", new_user_session_path, class: "btn btn-info byn-sm btn-block mb-3 sign_in" %>
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-info byn-sm btn-block mb-3 sign_in btnripple3" %>
           </div>
           <div class="row">
-            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success byn-sm btn-block sign_up" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success byn-sm btn-block sign_up btnripple3" %>
           </div>
         </div>
       </div>

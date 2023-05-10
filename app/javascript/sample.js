@@ -6,11 +6,16 @@ $(window).on('turbolinks:load', function() {
             Counter: $(this).text()
         }, {
         // スピードやアニメーションの設定
-            duration: 4000,//数字が大きいほど変化のスピードが遅くなる。2000=2秒
+            duration: 2000,//数字が大きいほど変化のスピードが遅くなる。2000=2秒
             easing: 'swing',//動きの種類。他にもlinearなど設定可能
             step: function (now) {
                 $(this).text(Math.ceil(now));
             }
         });
     });
+});
+
+
+$(".openbtn1").click(function () {
+    $(this).toggleClass('active');
 });
